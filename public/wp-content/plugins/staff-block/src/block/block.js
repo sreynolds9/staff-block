@@ -54,7 +54,7 @@ registerBlockType( 'sr-plugin/staff-block', {
 		},
 		imgUrl: {
 			type: 'string',
-			default: 'https://placehold.it/200',  //this is a site for free place holder images, 75 is the size 75x75
+			default: 'https://placehold.it/200',
 		},
 	},
 
@@ -82,7 +82,7 @@ registerBlockType( 'sr-plugin/staff-block', {
 			setAttributes({bio: value});
 		}
 		function selectImage(value) {
-			setAttributes({imgUrl: value.sizes.thumbnail.url}); //thumbnail, medium, full are options
+			setAttributes({imgUrl: value.sizes.full.url}); //thumbnail, medium, full are options
 		}
 
 
@@ -105,14 +105,14 @@ registerBlockType( 'sr-plugin/staff-block', {
 						<PlainText className="name"
 								   value={name}
 								   onChange={changeName}
-								   placeholder="Mr. John Doe"
+								   placeholder="Enter staff name here"
 						/>
 					</div>
 					<div className="text">
 						<PlainText className="position"
 								   value={position}
 								   onChange={changePosition}
-								   placeholder="Calculus"
+								   placeholder="Enter position here"
 						/>
 					</div>
 				</div>
@@ -120,7 +120,7 @@ registerBlockType( 'sr-plugin/staff-block', {
 						  tagName="div"
 						  value={bio}
 						  onChange={changeBio}
-						  placeholder="Lorem Ipsum blaah blah blah"
+						  placeholder="Enter staff bio here"
 				/>
 			</div>
 		);
