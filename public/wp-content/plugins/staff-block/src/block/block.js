@@ -54,7 +54,7 @@ registerBlockType( 'sr-plugin/staff-block', {
 		},
 		imgUrl: {
 			type: 'string',
-			default: 'https://placehold.it/75',  //this is a site for free place holder images, 75 is the size 75x75
+			default: 'https://placehold.it/200',  //this is a site for free place holder images, 75 is the size 75x75
 		},
 	},
 
@@ -89,7 +89,7 @@ registerBlockType( 'sr-plugin/staff-block', {
 		// Creates a <p class='wp-block-cgb-block-staff-block'></p>.
 		return (
 			<div className={ props.className }>
-				<div className="quote-profile">
+				<div className="staff-profile">
 					<div className="photo">
 						<MediaUploadCheck>
 							<MediaUpload
@@ -116,7 +116,7 @@ registerBlockType( 'sr-plugin/staff-block', {
 						/>
 					</div>
 				</div>
-				<RichText className="quote"
+				<RichText className="bio"
 						  tagName="div"
 						  value={bio}
 						  onChange={changeBio}
@@ -140,16 +140,17 @@ registerBlockType( 'sr-plugin/staff-block', {
 	save: ( props ) => {
 		return (
 			<div className={ props.className }>
-				<div className="quote-profile">
+				<div className="staff-profile">
 					<div className="photo">
 						<img src={props.attributes.imgUrl}/>
 					</div>
 					<div className="text">
 						<p className="name">{props.attributes.name}</p>
 						<p className="position">{props.attributes.position}</p>
+
+						<RichText.Content tagName="div" className="bio" value={props.attributes.bio}/>
 					</div>
 				</div>
-				<RichText.Content tagName="div" className="quote" value={props.attributes.bio}/>
 			</div>
 		);
 	},
